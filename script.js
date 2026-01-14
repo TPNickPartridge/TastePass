@@ -1,30 +1,44 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const sections = ["about", "discover", "faq", "login"];
-  const navLinks = document.querySelectorAll(".nav-links a");
+const loginForm = document.getElementById('login-form');
 
-  function setActiveSection() {
-    const scrollPosition = window.scrollY + 120;
+loginForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
 
-    for (const section of sections) {
-      const element = document.getElementById(section);
-      if (!element) continue;
+  const email = document.getElementById('email').value;
+  const password = document.getElementById('password').value;
+  const role = document.getElementById('role').value; // diner or restaurant
 
-      const { offsetTop, offsetHeight } = element;
+  // 1️⃣ Sign up user (client-side is safe)
+  const { data, error } = await supabase.auth.signUp({
+    email,
+    password,
+  });
 
-      if (
-        scrollPosition >= offsetTop &&
-        scrollPosition < offsetTop + offsetHeight
-      ) {
-        navLinks.forEach(link => {
-          link.classList.toggle(
-            "active",
-            link.dataset.section === section
-          );
-        });
-        break;
-      }
-    }
+  if (error) {
+    alert('Error creating account: ' + error.message);
+    return;
   }
 
-  window.addEventListener("scroll", setActiveSection);
+  // 2️⃣ Call secure Edge Function to assign role
+  const res = await fetch('https://<your-function-url>', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ user_id: data.user.id, role })
+  });
+
+  const result = await res.json();
+
+  if (result.error) {
+    alert('Failed to assign role: ' + result.error);
+    return;
+  }
+
+  alert('Account created! Check your email to confirm.');
+
+  // 3️⃣ Redirect to correct dashboard
+  if (role === 'diner') {
+    window.location.href = '/diner-dashboard.html';
+  } else {
+    window.location.href = '/restaurant-dashboard.html';
+  }
 });
+
