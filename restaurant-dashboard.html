@@ -1,0 +1,15 @@
+document.addEventListener("DOMContentLoaded", async () => {
+  const { data: { user }, error } = await supabase.auth.getUser();
+
+  if (!user) {
+    window.location.href = '/index.html'; // not logged in
+  } else {
+    const role = user.user_metadata.role;
+    if (window.location.pathname.includes('diner') && role !== 'diner') {
+      window.location.href = '/index.html';
+    }
+    if (window.location.pathname.includes('restaurant') && role !== 'restaurant') {
+      window.location.href = '/index.html';
+    }
+  }
+});
