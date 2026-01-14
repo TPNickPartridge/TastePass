@@ -1,117 +1,78 @@
-/* =================================================
-   GLOBAL DESIGN SYSTEM (FIGMA → CSS)
-================================================= */
-
-/* ---------- COLORS ---------- */
-:root {
-  --primary: #17B5C7;
-  --primary-hover: #1296A5;
-
-  --text-dark: #111827;
-  --text-muted: #4B5563;
-
-  --bg-light: #F9FAFB;
-  --bg-white: #FFFFFF;
-
-  --border-light: #E5E7EB;
-}
-
-/* ---------- FONTS ---------- */
 body {
-  font-family: "Inter", system-ui, sans-serif;
-  color: var(--text-dark);
   margin: 0;
-  background: var(--bg-white);
+  font-family: Inter, sans-serif;
+  color: #1f1f1f;
 }
 
-/* ---------- LAYOUT ---------- */
-.container {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 24px;
+nav {
+  position: sticky;
+  top: 0;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  z-index: 1000;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 32px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 24px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #1f1f1f;
+}
+
+.nav-links a.active {
+  color: #ff6b35;
+  font-weight: 600;
 }
 
 .section {
-  padding: 96px 0;
+  padding: 80px 32px;
 }
 
-.section-light {
-  background: var(--bg-light);
+.hero {
+  background: #fafafa;
+  text-align: center;
 }
 
-/* ---------- TYPOGRAPHY ---------- */
-h1 {
-  font-size: 48px;
-  font-weight: 700;
-}
-
-h2 {
-  font-size: 36px;
-  font-weight: 700;
-}
-
-p {
-  font-size: 16px;
-  color: var(--text-muted);
-}
-
-/* ---------- BUTTONS ---------- */
-.button {
+.primary-btn {
+  display: inline-block;
+  margin-top: 24px;
   padding: 12px 24px;
-  border-radius: 10px;
-  font-weight: 600;
-  border: none;
-  cursor: pointer;
-}
-
-.button-primary {
-  background: var(--primary);
+  background: #ff6b35;
   color: white;
+  text-decoration: none;
+  border-radius: 6px;
 }
 
-.button-primary:hover {
-  background: var(--primary-hover);
+.three-col {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
 }
 
-/* ---------- NAV ---------- */
-.navbar {
-  position: fixed;
-  width: 100%;
-  height: 64px;
-  background: rgba(255,255,255,0.95);
-  border-bottom: 1px solid var(--border-light);
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
 }
 
-.nav-inner {
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-/* ---------- CARDS ---------- */
 .card {
-  background: white;
-  border-radius: 24px;
-  overflow: hidden;
-  box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+  border: 1px solid #eee;
+  padding: 16px;
+  border-radius: 8px;
 }
 
-.card-body {
-  padding: 20px;
-}
-
-/* ---------- FORMS ---------- */
-input {
-  padding: 12px 16px;
-  width: 100%;
-  border-radius: 10px;
-  border: 1px solid var(--border-light);
-}
-
-/* ---------- FOOTER ---------- */
-.footer {
-  background: #111827;
-  color: white;
-  padding: 80px 0;
+footer {
+  padding: 24px;
+  text-align: center;
+  background: #fafafa;
 }
