@@ -6,7 +6,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="styles.css" />
 </head>
+<!-- Supabase JS -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+<script>
+  // Replace with your actual Supabase project info
+  const SUPABASE_URL = 'https://kvvulvszuenwlmctdzrl.supabase.co';
+  const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imt2dnVsdnN6dWVud2xtY3RkenJsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjgzOTg0NjgsImV4cCI6MjA4Mzk3NDQ2OH0.oGChyGC_j2f78GKdK9jhZ4kCnPFE1O5n1wVSSEvCE_Y';
 
+  const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+</script>
 <body>
 
   <!-- Navigation -->
