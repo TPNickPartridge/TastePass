@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>TastePass</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav id="navigation">
+    <div class="nav-container">
+      <div class="logo">TastePass</div>
+      <ul class="nav-links">
+        <li><a href="#about" data-section="about">About</a></li>
+        <li><a href="#discover" data-section="discover">Discover</a></li>
+        <li><a href="#faq" data-section="faq">FAQ</a></li>
+        <li><a href="#login" data-section="login">Login</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section id="hero" class="section hero">
+    <h1>Turn Empty Tables into Guaranteed Revenue</h1>
+    <p>Discover curated dining experiences — no discounts, no delivery fees.</p>
+    <a href="#discover" class="primary-btn">Discover Restaurants</a>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="section">
+    <h2>What is TastePass?</h2>
+    <div class="three-col">
+      <div>
+        <h3>For Diners</h3>
+        <p>Affordable, prepaid dining experiences with the city’s best restaurants.</p>
+      </div>
+      <div>
+        <h3>For Restaurants</h3>
+        <p>Monetize unused capacity without discounts or operational friction.</p>
+      </div>
+      <div>
+        <h3>How It Works</h3>
+        <p>Restaurants offer off-peak seats. Diners prepay. Everyone wins.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Discover -->
+  <section id="discover" class="section">
+    <h2>Discover Experiences</h2>
+    <div class="card-grid">
+      <div class="card">
+        <h3>Bistro Example</h3>
+        <p>$45 per person · Italian</p>
+        <span>4 seats left</span>
+        <button>View Experience</button>
+      </div>
+      <div class="card">
+        <h3>Modern Grill</h3>
+        <p>$55 per person · Contemporary</p>
+        <span>6 seats left</span>
+        <button>View Experience</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="section">
+    <h2>Frequently Asked Questions</h2>
+
+    <details>
+      <summary>Do diners pay upfront?</summary>
+      <p>Yes. Prepayment guarantees the reservation and reduces no-shows.</p>
+    </details>
+
+    <details>
+      <summary>Can restaurants control availability?</summary>
+      <p>Yes. Restaurants choose days, times, and seat counts.</p>
+    </details>
+  </section>
+
+  <!-- Login -->
+  <section id="login" class="section">
+    <h2>Login</h2>
+
+    <form id="login-form">
+      <input type="email" id="email" placeholder="Email" required />
+      <input type="password" id="password" placeholder="Password" required />
+      <select id="role">
+        <option value="diner">Diner</option>
+        <option value="restaurant">Restaurant</option>
+      </select>
+      <button type="submit">Log In</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>© TastePass. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
