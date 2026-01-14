@@ -1,3 +1,29 @@
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+<script>
+  const SUPABASE_URL = 'https://kvvulvszuenwlmctdzrl.supabase.co';
+  const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imt2dnVsdnN6dWVud2xtY3RkenJsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjgzOTg0NjgsImV4cCI6MjA4Mzk3NDQ2OH0.oGChyGC_j2f78GKdK9jhZ4kCnPFE1O5n1wVSSEvCE_Y';
+  const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+  document.addEventListener("DOMContentLoaded", async () => {
+    const { data: { user }, error } = await supabase.auth.getUser();
+
+    if (!user) {
+      // User not logged in
+      window.location.href = '/index.html';
+    } else {
+      const role = user.user_metadata.role;
+
+      // Redirect if user role does not match page
+      if (window.location.pathname.includes('diner') && role !== 'diner') {
+        window.location.href = '/index.html';
+      }
+      if (window.location.pathname.includes('restaurant') && role !== 'restaurant') {
+        window.location.href = '/index.html';
+      }
+    }
+  });
+</script>
+
 document.addEventListener("DOMContentLoaded", async () => {
   const { data: { user }, error } = await supabase.auth.getUser();
 
