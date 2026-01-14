@@ -1,311 +1,117 @@
-/* =====================================================
-   TASTEPASS DESIGN SYSTEM
-   Generated from Figma CSS snippets
-===================================================== */
+/* =================================================
+   GLOBAL DESIGN SYSTEM (FIGMA → CSS)
+================================================= */
 
-/* ------------------------
-   CSS VARIABLES
-------------------------- */
+/* ---------- COLORS ---------- */
 :root {
   --primary: #17B5C7;
-  --primary-dark: #1296A5;
+  --primary-hover: #1296A5;
 
-  --gray-900: #111827;
-  --gray-700: #374151;
-  --gray-600: #4B5563;
-  --gray-500: #6B7280;
-  --gray-300: #D1D5DB;
-  --gray-100: #F3F4F6;
-  --gray-50: #F9FAFB;
+  --text-dark: #111827;
+  --text-muted: #4B5563;
 
-  --white: #FFFFFF;
+  --bg-light: #F9FAFB;
+  --bg-white: #FFFFFF;
 
-  --radius-sm: 8px;
-  --radius-md: 12px;
-  --radius-lg: 16px;
-  --radius-xl: 24px;
-
-  --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
-  --shadow-md: 0 8px 24px rgba(0,0,0,0.12);
-  --shadow-lg: 0 16px 40px rgba(0,0,0,0.16);
-
-  --max-width: 1280px;
+  --border-light: #E5E7EB;
 }
 
-/* ------------------------
-   RESET / BASE
-------------------------- */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
+/* ---------- FONTS ---------- */
 body {
-  font-family: Inter, system-ui, sans-serif;
-  background: var(--white);
-  color: var(--gray-900);
-  line-height: 1.6;
+  font-family: "Inter", system-ui, sans-serif;
+  color: var(--text-dark);
+  margin: 0;
+  background: var(--bg-white);
 }
 
-img {
-  display: block;
-  max-width: 100%;
-}
-
-/* ------------------------
-   LAYOUT
-------------------------- */
+/* ---------- LAYOUT ---------- */
 .container {
-  max-width: var(--max-width);
+  max-width: 1280px;
   margin: 0 auto;
   padding: 0 24px;
 }
 
 .section {
-  padding: 80px 0;
+  padding: 96px 0;
 }
 
 .section-light {
-  background: var(--gray-50);
+  background: var(--bg-light);
 }
 
-/* ------------------------
-   TYPOGRAPHY
-------------------------- */
+/* ---------- TYPOGRAPHY ---------- */
 h1 {
-  font-size: 3rem;
+  font-size: 48px;
   font-weight: 700;
 }
 
 h2 {
-  font-size: 2.25rem;
+  font-size: 36px;
   font-weight: 700;
 }
 
-h3 {
-  font-size: 1.25rem;
-  font-weight: 600;
-}
-
 p {
-  color: var(--gray-600);
+  font-size: 16px;
+  color: var(--text-muted);
 }
 
-/* ------------------------
-   BUTTONS
-------------------------- */
+/* ---------- BUTTONS ---------- */
 .button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
   padding: 12px 24px;
-  border-radius: var(--radius-md);
+  border-radius: 10px;
   font-weight: 600;
-  cursor: pointer;
   border: none;
-  transition: all 0.25s ease;
+  cursor: pointer;
 }
 
 .button-primary {
   background: var(--primary);
-  color: var(--white);
+  color: white;
 }
 
 .button-primary:hover {
-  background: var(--primary-dark);
+  background: var(--primary-hover);
 }
 
-.button-outline {
-  background: transparent;
-  border: 1px solid var(--gray-300);
-}
-
-/* ------------------------
-   NAVIGATION
-------------------------- */
+/* ---------- NAV ---------- */
 .navbar {
   position: fixed;
-  top: 0;
   width: 100%;
+  height: 64px;
   background: rgba(255,255,255,0.95);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--gray-100);
-  z-index: 100;
+  border-bottom: 1px solid var(--border-light);
 }
 
 .nav-inner {
-  height: 64px;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.nav-links {
-  display: flex;
-  gap: 32px;
-}
-
-.nav-link {
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--gray-600);
-  position: relative;
-}
-
-.nav-link:hover,
-.nav-link.active {
-  color: var(--primary);
-}
-
-.nav-link.active::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -6px;
-  width: 100%;
-  height: 2px;
-  background: var(--primary);
-}
-
-/* ------------------------
-   RESTAURANT CARDS
-------------------------- */
+/* ---------- CARDS ---------- */
 .card {
-  background: var(--white);
-  border-radius: var(--radius-xl);
+  background: white;
+  border-radius: 24px;
   overflow: hidden;
-  box-shadow: var(--shadow-sm);
-  transition: all 0.3s ease;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.12);
 }
 
-.card:hover {
-  transform: translateY(-8px);
-  box-shadow: var(--shadow-lg);
-}
-
-.card-image {
-  height: 200px;
-  overflow: hidden;
-}
-
-.card-image img {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-  transition: transform 0.3s ease;
-}
-
-.card:hover img {
-  transform: scale(1.1);
-}
-
-.card-content {
+.card-body {
   padding: 20px;
 }
 
-.card-meta {
-  display: flex;
-  gap: 8px;
-  font-size: 14px;
-  color: var(--gray-600);
-}
-
-.card-rating {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  background: rgba(255,255,255,0.95);
-  padding: 6px 10px;
-  border-radius: 999px;
-  font-size: 14px;
-  font-weight: 600;
-}
-
-/* ------------------------
-   FAQ
-------------------------- */
-.faq-tabs {
-  display: inline-flex;
-  background: var(--white);
-  padding: 4px;
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-sm);
-}
-
-.faq-tab {
-  padding: 12px 32px;
-  border-radius: var(--radius-md);
-  font-weight: 600;
-  color: var(--gray-600);
-  cursor: pointer;
-}
-
-.faq-tab.active {
-  background: var(--primary);
-  color: var(--white);
-}
-
-.faq-item {
-  background: var(--white);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-sm);
-  overflow: hidden;
-}
-
-.faq-question {
-  padding: 20px 24px;
-  font-weight: 600;
-  display: flex;
-  justify-content: space-between;
-  cursor: pointer;
-}
-
-.faq-answer {
-  padding: 0 24px 20px;
-  color: var(--gray-600);
-}
-
-/* ------------------------
-   FORMS
-------------------------- */
-input,
-select {
-  width: 100%;
+/* ---------- FORMS ---------- */
+input {
   padding: 12px 16px;
-  border-radius: var(--radius-md);
-  border: 1px solid var(--gray-300);
-  font-size: 14px;
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid var(--border-light);
 }
 
-input:focus {
-  outline: none;
-  border-color: var(--primary);
-}
-
-/* ------------------------
-   FOOTER
-------------------------- */
+/* ---------- FOOTER ---------- */
 .footer {
-  background: var(--gray-900);
-  color: var(--white);
+  background: #111827;
+  color: white;
   padding: 80px 0;
-}
-
-.footer p {
-  color: var(--gray-500);
-}
-
-.footer-links {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.footer a {
-  color: var(--gray-400);
-}
-
-.footer a:hover {
-  color: var(--white);
 }
